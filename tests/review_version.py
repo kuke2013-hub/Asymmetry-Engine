@@ -17,7 +17,7 @@ def check():
     texts={}
     for label,url in (("root",BASE),("version",BASE+"versions/"+VER+"/")):
         html=fetch(url).decode()
-        assert f'content="{VER}"' in html,f"{label} is not at {VER}"
+        assert f'content="{VER.removeprefix("v")}"' in html,f"{label} is not at {VER}"
         assert "andreas almgren" not in html.lower()
         assert "Recorded search signals" not in html
         assert "product-only.json" in html
@@ -35,5 +35,6 @@ if __name__=="__main__":
             break
         except Exception as ex:
             last=ex
+            if i % 8 == 0: print(f"Audit attempt {i+1}: {type(ex).__name__}: {ex}",flush=True)
             time.sleep(4)
     else:raise AssertionError("Live release never passed: "+str(last))
