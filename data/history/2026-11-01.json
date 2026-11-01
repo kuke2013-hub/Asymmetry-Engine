@@ -1,6 +1,6 @@
 {
   "captured_day": "2026-11-01",
-  "generated_at": "2026-11-01T16:43:50+00:00",
+  "generated_at": "2026-11-01T17:00:41+00:00",
   "warning": "Market research signals; NOT product sales or affiliate earnings",
   "observations": [
     {
@@ -15,35 +15,21 @@
         "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
       "source": "google_trending_rss",
-      "term": "birmingham city w.f.c. vs tottenham hotspur f.c. women standings",
+      "term": "declan rice",
       "metric_type": "approx_search_traffic_bucket",
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
         "approx_traffic_display": "500+",
-        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "published_at": "Sun, 1 Nov 2026 08:40:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
-    },
-    {
-      "market": "GB",
-      "source": "google_trending_rss",
-      "term": "bradley barcola",
-      "metric_type": "approx_search_traffic_bucket",
-      "metric_value": null,
-      "source_url": "https://trends.google.com/trending/rss?geo=GB",
-      "metadata": {
-        "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
-        "note": "Search trends, NOT verified product sales"
-      },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
@@ -53,81 +39,95 @@
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
+        "approx_traffic_display": "500+",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T17:00:40+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "oliver glasner",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
         "approx_traffic_display": "200+",
         "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
       "source": "google_trending_rss",
-      "term": "now",
+      "term": "ronald araújo",
       "metric_type": "approx_search_traffic_bucket",
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
         "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
       "source": "google_trending_rss",
-      "term": "paris fc vs monaco",
+      "term": "s.s. lazio vs cagliari calcio standings",
       "metric_type": "approx_search_traffic_bucket",
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
         "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
       "source": "google_trending_rss",
-      "term": "pippa middleton",
+      "term": "sportek",
       "metric_type": "approx_search_traffic_bucket",
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
         "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "published_at": "Sun, 1 Nov 2026 08:40:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
       "source": "google_trending_rss",
-      "term": "remembrance day 2026",
+      "term": "stock market crash",
       "metric_type": "approx_search_traffic_bucket",
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
         "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
       "source": "google_trending_rss",
-      "term": "sadiq khan",
+      "term": "the pentagon",
       "metric_type": "approx_search_traffic_bucket",
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
         "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "GB",
@@ -137,11 +137,11 @@
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=GB",
       "metadata": {
-        "approx_traffic_display": "200+",
+        "approx_traffic_display": "500+",
         "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "JP",
@@ -155,7 +155,21 @@
         "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "probably stolen",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 08:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -169,7 +183,7 @@
         "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -183,7 +197,21 @@
         "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "クレイジーウォウウォ",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -197,7 +225,7 @@
         "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -211,7 +239,7 @@
         "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -225,7 +253,7 @@
         "published_at": "Sun, 1 Nov 2026 07:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -235,39 +263,11 @@
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=JP",
       "metadata": {
-        "approx_traffic_display": "2000+",
+        "approx_traffic_display": "5000+",
         "published_at": "Sun, 1 Nov 2026 07:40:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
-    },
-    {
-      "market": "JP",
-      "source": "google_trending_rss",
-      "term": "奥村温輝",
-      "metric_type": "approx_search_traffic_bucket",
-      "metric_value": null,
-      "source_url": "https://trends.google.com/trending/rss?geo=JP",
-      "metadata": {
-        "approx_traffic_display": "100+",
-        "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
-        "note": "Search trends, NOT verified product sales"
-      },
-      "captured_at": "2026-11-01T16:43:50+00:00"
-    },
-    {
-      "market": "JP",
-      "source": "google_trending_rss",
-      "term": "本田真凜",
-      "metric_type": "approx_search_traffic_bucket",
-      "metric_value": null,
-      "source_url": "https://trends.google.com/trending/rss?geo=JP",
-      "metadata": {
-        "approx_traffic_display": "2000+",
-        "published_at": "Sun, 1 Nov 2026 08:00:00 -0800",
-        "note": "Search trends, NOT verified product sales"
-      },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "JP",
@@ -281,7 +281,35 @@
         "published_at": "Sun, 1 Nov 2026 07:10:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "kbs",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T17:00:41+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "liverpool vs arsenal",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -295,7 +323,7 @@
         "published_at": "Sun, 1 Nov 2026 06:50:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -309,7 +337,7 @@
         "published_at": "Sun, 1 Nov 2026 06:20:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -323,7 +351,7 @@
         "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -337,7 +365,7 @@
         "published_at": "Sun, 1 Nov 2026 07:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -351,7 +379,7 @@
         "published_at": "Sun, 1 Nov 2026 07:30:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -365,21 +393,7 @@
         "published_at": "Sun, 1 Nov 2026 06:40:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
-    },
-    {
-      "market": "KR",
-      "source": "google_trending_rss",
-      "term": "손석구",
-      "metric_type": "approx_search_traffic_bucket",
-      "metric_value": null,
-      "source_url": "https://trends.google.com/trending/rss?geo=KR",
-      "metadata": {
-        "approx_traffic_display": "1000+",
-        "published_at": "Sun, 1 Nov 2026 05:40:00 -0800",
-        "note": "Search trends, NOT verified product sales"
-      },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -393,7 +407,7 @@
         "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -403,25 +417,11 @@
       "metric_value": null,
       "source_url": "https://trends.google.com/trending/rss?geo=KR",
       "metadata": {
-        "approx_traffic_display": "1000+",
+        "approx_traffic_display": "500+",
         "published_at": "Sun, 1 Nov 2026 06:10:00 -0800",
         "note": "Search trends, NOT verified product sales"
       },
-      "captured_at": "2026-11-01T16:43:50+00:00"
-    },
-    {
-      "market": "KR",
-      "source": "google_trending_rss",
-      "term": "코리아 오픈",
-      "metric_type": "approx_search_traffic_bucket",
-      "metric_value": null,
-      "source_url": "https://trends.google.com/trending/rss?geo=KR",
-      "metadata": {
-        "approx_traffic_display": "200+",
-        "published_at": "Sun, 1 Nov 2026 06:10:00 -0800",
-        "note": "Search trends, NOT verified product sales"
-      },
-      "captured_at": "2026-11-01T16:43:50+00:00"
+      "captured_at": "2026-11-01T17:00:41+00:00"
     }
   ],
   "collection_runs": [
@@ -433,8 +433,8 @@
       "inserted": 10,
       "http_status": 200,
       "error": null,
-      "started_at": "2026-11-01T16:43:50+00:00",
-      "finished_at": "2026-11-01T16:43:50+00:00"
+      "started_at": "2026-11-01T17:00:40+00:00",
+      "finished_at": "2026-11-01T17:00:40+00:00"
     },
     {
       "market": "JP",
@@ -444,8 +444,8 @@
       "inserted": 10,
       "http_status": 200,
       "error": null,
-      "started_at": "2026-11-01T16:43:50+00:00",
-      "finished_at": "2026-11-01T16:43:50+00:00"
+      "started_at": "2026-11-01T17:00:40+00:00",
+      "finished_at": "2026-11-01T17:00:41+00:00"
     },
     {
       "market": "KR",
@@ -455,8 +455,8 @@
       "inserted": 10,
       "http_status": 200,
       "error": null,
-      "started_at": "2026-11-01T16:43:50+00:00",
-      "finished_at": "2026-11-01T16:43:50+00:00"
+      "started_at": "2026-11-01T17:00:41+00:00",
+      "finished_at": "2026-11-01T17:00:41+00:00"
     }
   ]
 }
