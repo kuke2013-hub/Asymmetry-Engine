@@ -1,0 +1,32 @@
+{
+  "note": "Watchlist hypotheses only. The existence of a term does not imply sales.",
+  "yahoo_queries": [
+    "折りたたみ 収納",
+    "美容 グッズ",
+    "便利 キッチン"
+  ],
+  "naver": [
+    {
+      "name": "beauty_tools",
+      "category_id": "50000002",
+      "keywords": [
+        "얼굴 아이스볼",
+        "두피 마사지기",
+        "헤어 롤러",
+        "실리콘 마스크",
+        "쿨링 팩"
+      ]
+    },
+    {
+      "name": "home_tools",
+      "category_id": "50000008",
+      "keywords": [
+        "접이식 수납함",
+        "냉동 보관 용기",
+        "주방 슬라이서",
+        "신발 세탁망",
+        "청소 브러시"
+      ]
+    }
+  ]
+}

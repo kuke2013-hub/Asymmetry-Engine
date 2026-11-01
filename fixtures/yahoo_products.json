@@ -1,0 +1,31 @@
+{
+  "high_rating_trend_ranking": {
+    "meta": {
+      "last_modified": "2026-11-01"
+    },
+    "ranking_data": [
+      {
+        "rank": 1,
+        "item_information": {
+          "code": "fixture-shop:foldbox",
+          "name": "折りたたみ収納ボックス",
+          "regular_price": 1990,
+          "url": "https://example.invalid/item/foldbox"
+        },
+        "review": {
+          "count": 20,
+          "rate": 4.5
+        }
+      },
+      {
+        "rank": 2,
+        "item_information": {
+          "code": "fixture-shop:brush",
+          "name": "頭皮マッサージブラシ",
+          "regular_price": 980,
+          "url": "https://example.invalid/item/brush"
+        }
+      }
+    ]
+  }
+}

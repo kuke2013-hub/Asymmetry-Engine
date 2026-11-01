@@ -1,0 +1,27 @@
+name: Validate Asian marketplace adapters
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'engine/market_products.py'
+      - 'engine/market_cli.py'
+      - 'tests/test_market_products.py'
+      - '.github/workflows/products.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source parsers and normalisation
+        run: python -m unittest discover -s tests -v
+      - name: Record API availability without credentials
+        run: python -m engine.market_cli collect --out reports/product-sources.json
+      - name: Display source status
+        run: cat reports/product-sources.json
