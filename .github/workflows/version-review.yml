@@ -10,6 +10,8 @@ on:
       - 'tests/browser_safety.cjs'
       - '.github/workflows/version-review.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * *'
 permissions:
   contents: read
 jobs:
