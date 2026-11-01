@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="app-version" content="3.2">
+<meta name="app-version" content="3.3">
 <meta name="description" content="Product-only market research: public evidence and source readiness, without invented opportunities.">
-<title>Asymmetry Engine — Product Research</title>
+<title>Asymmetry Engine v3.3 — Product Research</title>
 <style>
 :root{color-scheme:dark;--bg:#0c121a;--surface:#151f2b;--surface2:#101924;--text:#edf4fa;--muted:#a7b8c9;--line:#304252;--accent:#92cffb;--warn:#f6c68d}
 *{box-sizing:border-box}
@@ -56,6 +56,8 @@ footer{font-size:12px;color:var(--muted);line-height:1.7;margin-top:29px}
  .milestones{grid-template-columns:1fr}
  .statusbar{margin-top:19px;padding:12px 14px}
 }
+
+.provider-guides{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}.provider-guides a{font-size:13px}
 </style>
 </head>
 <body><main>
@@ -86,6 +88,11 @@ footer{font-size:12px;color:var(--muted);line-height:1.7;margin-top:29px}
 <div class="split"><h2>Data-source readiness</h2><span class="badge">Source-specific evidence</span></div>
 <div id="sources"><p class="note">Checking the source status report…</p></div>
 <p class="note">South Korea: Naver shopping keywords measure relative interest, not identifiable products. China: no authorised retail feed yet. UK: no retailer matching. These markets are therefore not claimed as connected product sources.</p>
+<div class="provider-guides" aria-label="Official API references">
+ <a href="https://developer.yahoo.co.jp/webapi/shopping/shopping/v1/highRatingTrendRanking.html" target="_blank" rel="noopener noreferrer">Yahoo Shopping API documentation</a>
+ <a href="https://webservice.rakuten.co.jp/index.php/documentation/ichiba-item-search" target="_blank" rel="noopener noreferrer">Rakuten Item Search API documentation</a>
+ <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/actions/workflows/products.yml" target="_blank" rel="noopener noreferrer">Latest collection attempts</a>
+</div>
 </section>
 
 <section class="panel">
@@ -153,16 +160,22 @@ try{
  const response=await fetch("./reports/product-only.json",{cache:"no-store"});
  if(!response.ok)throw new Error("Report unavailable");
  const data=await response.json();
- if(data.schema_version!==3||data.data_type!=="retailer_product_listings_only")throw new Error("Invalid report type");
+ if(data.schema_version!==3||data.data_type!=="retailer_product_listings_only"||!Array.isArray(data.products)||!Array.isArray(data.source_status)||data.product_count!==data.products.length)throw new Error("Invalid or inconsistent report");
  const count=sourceStatus(data.source_status||[]);
  $("connected").textContent=count;
  products(data.products||[]);
  const ts=new Date(data.generated_at);
  const validDate=Number.isFinite(ts.valueOf());
  $("snapshot").textContent="Latest pipeline run: "+(validDate?ts.toLocaleString("en-GB",{timeZone:"UTC"})+" UTC":"timestamp unavailable")+". This is not a sales report.";
+ const ageHours=validDate?(Date.now()-ts.valueOf())/3600000:Infinity;
+ if(!validDate || ageHours>48){
+   $("status-title").textContent="Product-source report is outdated";
+   $("status-message").textContent="The most recent published status is more than 48 hours old or undated. Current source availability is unknown.";
+   $("status-title").dataset.stale="true";
+ }
  const total=(data.products||[]).filter(isTrusted).length;
- $("status-title").textContent=count===0?"No live retail feeds connected":total?"Retail catalogue available for review":"Retail feeds connected; no qualifying listings";
- $("status-message").textContent=count===0?"All configured merchant API calls are currently unavailable. Product research is not yet operational.":total?"Review individual listings before assessing UK opportunity.":"The connected API calls did not produce qualifying product records.";
+ if($("status-title").dataset.stale!=="true")$("status-title").textContent=count===0?"No live retail feeds connected":total?"Retail catalogue available for review":"Retail feeds connected; no qualifying listings";
+ if($("status-title").dataset.stale!=="true")$("status-message").textContent=count===0?"No successful authenticated retail API queries were recorded. Product research is not yet operational.":total?"Review individual listings before assessing UK opportunity.":"The connected API calls did not produce qualifying product records.";
 }catch(ex){
  $("product-count").textContent="Unavailable";$("connected").textContent="Unavailable";
  $("status-title").textContent="Product data is unavailable";
