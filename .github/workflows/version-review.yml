@@ -7,6 +7,7 @@ on:
       - 'versions/**'
       - 'config/site-release.json'
       - 'tests/review_version.py'
+      - 'tests/browser_safety.cjs'
       - '.github/workflows/version-review.yml'
   workflow_dispatch:
 permissions:
@@ -46,6 +47,11 @@ jobs:
           ! grep -q 'product data is unavailable' website-review/rendered.html
           test -s website-review/desktop.png && test -s website-review/mobile.png
           printf 'Verified %s\n' "$SITE" > website-review/verification.txt
+      - name: Adversarial browser validation (stale, malformed and non-product data)
+        shell: bash
+        run: |
+          npm install --no-save --no-package-lock playwright-core@^1.50.0
+          node tests/browser_safety.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
