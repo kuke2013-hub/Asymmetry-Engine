@@ -1,0 +1,50 @@
+name: Audit actual deployed website
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'tests/live_site.py'
+      - '.github/workflows/site-audit.yml'
+permissions:
+  contents: read
+jobs:
+  public-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test actual public GitHub Pages URL and actual published JSON
+        run: python tests/live_site.py
+      - name: Render live site with Chrome to capture desktop and mobile
+        shell: bash
+        run: |
+          mkdir -p website-qa
+          if command -v google-chrome >/dev/null; then CHROME=google-chrome
+          elif command -v chromium >/dev/null; then CHROME=chromium
+          else echo "No browser binary on runner" && exit 1
+          fi
+          "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars \
+            --virtual-time-budget=4000 --window-size=1440,1100 \
+            --screenshot=website-qa/desktop.png \
+            https://kuke2013-hub.github.io/Asymmetry-Engine/
+          "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars \
+            --virtual-time-budget=4000 --window-size=390,1100 \
+            --screenshot=website-qa/mobile.png \
+            https://kuke2013-hub.github.io/Asymmetry-Engine/
+          "$CHROME" --headless --no-sandbox --disable-gpu \
+            --virtual-time-budget=4000 --dump-dom \
+            https://kuke2013-hub.github.io/Asymmetry-Engine/ > website-qa/rendered.html
+          grep -q 'No verified product listings yet' website-qa/rendered.html
+          ! grep -qi 'andreas almgren' website-qa/rendered.html
+          test -s website-qa/desktop.png
+          test -s website-qa/mobile.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: live-site-visual-audit
+          path: website-qa/
+          retention-days: 7
