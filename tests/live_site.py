@@ -11,7 +11,7 @@ def main():
     for attempt in range(18):
         try:
             text=load("").decode("utf-8")
-            if "Physical products." in text and "reports/product-only.json" in text:break
+            if 'name="app-version" content="3.1"' in text and "reports/product-only.json" in text:break
             last="Expected version not yet deployed"
         except Exception as ex:last=type(ex).__name__
         time.sleep(5)
@@ -19,6 +19,8 @@ def main():
     assert "andreas almgren" not in text.lower(), "Old celebrity visible in HTML"
     assert "Recorded search signals" not in text, "Old search table visible in HTML"
     assert "reports/latest-observations.json" not in text, "Old RSS feed still loaded"
+    assert "Not assessed" in text, "UK assessment falsely shown as numerical zero"
+    assert "No live retail feeds connected" in text, "Missing honest source-readiness state"
     data=json.loads(load("reports/product-only.json"))
     assert data["schema_version"]==3
     assert data["data_type"]=="retailer_product_listings_only"
