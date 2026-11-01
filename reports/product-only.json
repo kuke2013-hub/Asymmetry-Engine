@@ -1,0 +1,70 @@
+{
+  "schema_version": 3,
+  "generated_at": "2026-11-01T17:31:15+00:00",
+  "data_type": "retailer_product_listings_only",
+  "headline": "Catalogue candidates; none are verified UK commercial opportunities",
+  "products": [],
+  "product_count": 0,
+  "rejected_records": 0,
+  "source_status": [
+    {
+      "source": "yahoo_jp_high_rating_products",
+      "market": "JP",
+      "category": "beauty_tools",
+      "query": "美容 マッサージ グッズ",
+      "status": "credentials_missing",
+      "accepted": 0,
+      "rejected": 0
+    },
+    {
+      "source": "yahoo_jp_high_rating_products",
+      "market": "JP",
+      "category": "kitchen_gadgets",
+      "query": "便利 キッチン スライサー",
+      "status": "credentials_missing",
+      "accepted": 0,
+      "rejected": 0
+    },
+    {
+      "source": "yahoo_jp_high_rating_products",
+      "market": "JP",
+      "category": "storage_organisation",
+      "query": "折りたたみ 収納 ボックス",
+      "status": "credentials_missing",
+      "accepted": 0,
+      "rejected": 0
+    },
+    {
+      "source": "rakuten_jp_item_search",
+      "market": "JP",
+      "category": "beauty_tools",
+      "query": "シリコン フェイス ケア",
+      "status": "credentials_missing",
+      "accepted": 0,
+      "rejected": 0
+    },
+    {
+      "source": "rakuten_jp_item_search",
+      "market": "JP",
+      "category": "cleaning_tools",
+      "query": "便利 掃除 ブラシ",
+      "status": "credentials_missing",
+      "accepted": 0,
+      "rejected": 0
+    },
+    {
+      "source": "rakuten_jp_item_search",
+      "market": "JP",
+      "category": "travel_accessories",
+      "query": "旅行 収納 ポーチ",
+      "status": "credentials_missing",
+      "accepted": 0,
+      "rejected": 0
+    }
+  ],
+  "uk_matching_status": "not_implemented",
+  "china_status": "not_connected",
+  "korea_product_status": "no_authorised_SKU_feed",
+  "sales_status": "no_verified_units_sold",
+  "disclaimer": "Ranking is not units sold. No UK availability, commissions or predictive advantage validated."
+}
