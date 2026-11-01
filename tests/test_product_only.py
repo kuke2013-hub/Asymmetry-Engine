@@ -129,4 +129,29 @@ class ProviderParsingTests(unittest.TestCase):
     # Files under fixtures/ aren't read by the dashboard or action collector.
     self.assertTrue((ROOT/"fixtures/product_only_yahoo.json").exists())
 
+class WebsiteContractTests(unittest.TestCase):
+ def test_website_only_loads_retail_product_feed(self):
+    page=(ROOT/"index.html").read_text(encoding="utf-8")
+    self.assertIn("./reports/product-only.json",page)
+    self.assertNotIn("latest-observations.json",page)
+    self.assertNotIn("google_trending_rss",page)
+    self.assertNotIn("Recorded search signals",page)
+ def test_no_unverified_products_in_public_report(self):
+    path=ROOT/"reports/product-only.json"
+    if not path.exists():
+       self.skipTest("No production report has been generated yet")
+    data=json.loads(path.read_text(encoding="utf-8"))
+    self.assertEqual(data["schema_version"],3)
+    self.assertEqual(data["data_type"],"retailer_product_listings_only")
+    self.assertEqual(data["product_count"],len(data["products"]))
+    for product in data["products"]:
+       validate_product(product)
+       self.assertNotEqual(product["source"],"google_trending_rss")
+ def test_watchlist_cannot_request_general_search_topics(self):
+    config=json.loads((ROOT/"config/products.json").read_text(encoding="utf-8"))
+    from engine.product_only import SOURCES,PUBLISHABLE
+    for item in config["queries"]:
+       self.assertIn(item["source"],SOURCES)
+       self.assertIn(item["category"],PUBLISHABLE)
+
 if __name__=="__main__":unittest.main()
