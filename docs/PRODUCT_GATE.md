@@ -68,3 +68,15 @@ All of the following must pass before a deploy can be called good:
 7. Production browser fetch uses reports/product-only.json only.
 
 Any unsatisfied gate means **no product claim**, not a plausible guess.
+
+## Cross-check of official provider specifications
+
+Yahoo Shopping high-rating trend API uses the `high_rating_trend_ranking.ranking_data` structure; `item_information.code` can be seller-scoped. Link identity is checked against the official merchant domain and seller context.
+
+Rakuten Ichiba Item Search 2026-07-01 uses `formatVersion=2` with `items[]`, `imageFlag=1`, a required application ID and an access key.
+
+These facts match provider documentation. Both adapters still need real authenticated-response validation before being treated as production-ready.
+
+## Not yet built
+
+No Korean or Chinese SKU feed; no UK product matching; no commission verification; no durable daily product history; no qualified product performance model. The system cannot claim these features until they exist and have evidence-backed tests.

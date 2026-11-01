@@ -154,4 +154,41 @@ class WebsiteContractTests(unittest.TestCase):
        self.assertIn(item["source"],SOURCES)
        self.assertIn(item["category"],PUBLISHABLE)
 
+
+class DeepIntegrityAuditTests(unittest.TestCase):
+ def test_malformed_https_port_rejected_without_exception(self):
+    self.assertFalse(safe_url("https://store.shopping.yahoo.co.jp:xyz/shop/item.html",{"store.shopping.yahoo.co.jp"}))
+    with self.assertRaises(BadProduct):
+       validate_product(valid(product_url="https://store.shopping.yahoo.co.jp:xyz/shop/item.html"))
+ def test_retailer_homepage_and_search_url_not_product_page(self):
+    for url in ("https://store.shopping.yahoo.co.jp/","https://store.shopping.yahoo.co.jp/search","https://item.rakuten.co.jp/"):
+       self.assertFalse(safe_url(url,{"store.shopping.yahoo.co.jp","item.rakuten.co.jp"}))
+ def test_yahoo_scopes_retail_sku_by_seller(self):
+    original=json.loads((ROOT/"fixtures/product_only_yahoo.json").read_text())
+    row=original["high_rating_trend_ranking"]["ranking_data"][0]
+    row["item_information"]["code"]="sample123"
+    row["item_information"]["url"]="https://store.shopping.yahoo.co.jp/seller123/sample123.html"
+    row["seller"]={"id":"seller123"}
+    out,rejected=parse_yahoo_product_list(json.dumps(original).encode(),"beauty_tools")
+    self.assertEqual(out[0].product_id,"seller123:sample123")
+ def test_rakuten_request_filters_images_by_documented_parameter(self):
+    rf=(ROOT/"fixtures/product_only_rakuten.json").read_bytes()
+    seen=[]
+    def fake(url,headers=None):
+       seen.append((url,headers))
+       return rf
+    cfg={"queries":[{"source":"rakuten_jp_item_search","term":"収納","category":"storage_organisation"}]}
+    out=collect_product_sources(cfg,env={"RAKUTEN_APP_ID":"dummy","RAKUTEN_ACCESS_KEY":"dummy"},fetch=fake)
+    self.assertIn("imageFlag=1",seen[0][0])
+    self.assertNotIn("hasImageFlag",seen[0][0])
+    self.assertEqual(out["product_count"],1)
+ def test_historical_series_is_not_falsely_claimed(self):
+    out=publish([valid()],[],ST)
+    self.assertEqual(out["history_status"],"daily_product_history_not_configured")
+    self.assertEqual(out["product_review_status"],"unreviewed_retailer_listings")
+ def test_no_claim_of_proven_uk_lead_time_on_public_page(self):
+    page=(ROOT/"index.html").read_text(encoding="utf-8").lower()
+    self.assertNotIn("before the uk market catches up",page)
+    self.assertIn("unproven",page)
+
 if __name__=="__main__":unittest.main()

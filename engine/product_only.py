@@ -51,12 +51,21 @@ def now_utc():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 def safe_url(url, hosts):
+    """Accept only real product-detail paths on the approved retailer domains."""
     if not isinstance(url,str):return False
-    p=urlparse(url)
-    if p.scheme != "https" or not p.hostname or p.port not in (None,443):
+    try:
+        p=urlparse(url)
+        if p.scheme != "https" or not p.hostname or p.port not in (None,443):
+            return False
+        if p.username or p.password:return False
+        if p.hostname.lower() not in hosts:return False
+        segments=[x for x in p.path.split("/") if x]
+        if len(segments)<2:return False
+        if p.hostname.lower()=="store.shopping.yahoo.co.jp" and not segments[-1].endswith(".html"):
+            return False
+        return True
+    except ValueError:
         return False
-    if p.username or p.password:return False
-    return p.hostname.lower() in hosts
 
 def validate_product(record):
     if not isinstance(record,dict):raise BadProduct("not a product object")
@@ -94,6 +103,21 @@ def validate_product(record):
          observed_at=stamp,ranking_position=rank,
          image_url=record.get("image_url"),review_count=record.get("review_count"))
 
+def _scoped_yahoo_id(row):
+    """Shopping codes can be shop-specific; preserve seller context."""
+    item=row.get("item_information") or {}
+    raw=item.get("code")
+    if not isinstance(raw,str) or not raw.strip():
+        return None
+    seller=(row.get("seller") or {}).get("id")
+    if not seller:
+        try:
+            parts=[x for x in urlparse(item.get("url") or "").path.split("/") if x]
+            seller=parts[0] if len(parts)>=2 else None
+        except ValueError:
+            seller=None
+    return (str(seller)+":"+raw) if seller and not raw.startswith(str(seller)+":") else raw
+
 def parse_yahoo_product_list(raw,category,observed_at=None):
     data=json.loads(raw)
     root=data.get("high_rating_trend_ranking")
@@ -110,7 +134,7 @@ def parse_yahoo_product_list(raw,category,observed_at=None):
             image=row.get("image") or {}
             product=validate_product({
                 "market":"JP","source":"yahoo_jp_high_rating_products",
-                "product_id":item.get("code"),
+                "product_id":_scoped_yahoo_id(row),
                 "title":item.get("name"),"category":category,
                 "price":price,"currency":"JPY","product_url":item.get("url"),
                 "observed_at":observed_at,
@@ -189,6 +213,8 @@ def publish(products,source_status,observed_at=None):
        "china_status":"not_connected",
        "korea_product_status":"no_authorised_SKU_feed",
        "sales_status":"no_verified_units_sold",
+       "product_review_status":"unreviewed_retailer_listings",
+       "history_status":"daily_product_history_not_configured",
        "disclaimer":"Ranking is not units sold. No UK availability, commissions or predictive advantage validated."
     }
 
@@ -216,7 +242,7 @@ def collect_product_sources(watchlist,env=None,fetch=https_json):
             else:
                 url=RAKUTEN_URL+"?"+urlencode({"applicationId":env["RAKUTEN_APP_ID"],
                    "keyword":term,"hits":20,"minPrice":500,"maxPrice":3500,
-                   "availability":1,"hasImageFlag":1,"format":"json",
+                   "availability":1,"imageFlag":1,"format":"json",
                    "formatVersion":2})
                 raw=fetch(url,headers={"accessKey":env["RAKUTEN_ACCESS_KEY"]})
                 rows,bad=parse_rakuten_product_list(raw,category)

@@ -1,6 +1,6 @@
 # Asymmetry Engine — Product Discovery v3
 
-**Research premise:** Discover inexpensive, demo-friendly physical consumer
+**Research hypothesis (not verified):** Discover inexpensive, demo-friendly physical consumer
 goods in Asian marketplaces, and later test whether their UK marketing
 potential is underexploited.
 
@@ -44,3 +44,13 @@ network without permission. See the full [data policy](docs/PRODUCT_GATE.md).
 No real retailer product collection is established without credentials.
 No UK product matches, sales counts or proven market lead-time exist.
 We intentionally do not show a product "opportunity score" yet.
+
+## Third-party audit findings (1 November 2026)
+
+- Both official API adapters currently have **no authenticated live responses**. Only their parsing logic has been tested using synthetic test data.
+- The Yahoo adapter now scopes item codes to stores to avoid accidental ID collisions.
+- The Rakuten adapter now uses the documented `imageFlag` argument (rather than an unrecognised image filter) and formatVersion=2.
+- A successful GitHub Action means the software check ran. The Actions job summary separately states how many retailer requests really returned product data.
+- Product category labels are **search/watchlist themes**, not verified item classifications.
+- GitHub publishes only the most recent product-only status file. **A durable historical product database is not operational**, so no growth rate or cross-market lead time can presently be measured.
+- The website is additionally audited by a live Chrome desktop/mobile rendering workflow; an already-open browser tab can still display a stale earlier version until reloaded.

@@ -1,4 +1,4 @@
-name: Product-only source collection
+name: Product source readiness and collection attempt
 on:
   push:
     branches: [main]
@@ -32,6 +32,27 @@ jobs:
           RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
         run: python -m engine.product_only --output reports/product-only.json
+      - name: Explain collection status distinctly from test status
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,os
+          report=json.load(open("reports/product-only.json",encoding="utf-8"))
+          checks=report["source_status"]
+          live=sum(row["status"]=="success" for row in checks)
+          missing=sum(row["status"]=="credentials_missing" for row in checks)
+          lines=["## Product feed reality check", "",
+                 f"**Authenticated successful queries: {live}**",
+                 f"**Missing-credential queries: {missing}**",
+                 f"**Product records: {report['product_count']}**", "",
+                 "**Software tests passing is not evidence of working marketplace data.**",
+                 "No valid product listings were collected." if not report["products"] else
+                 "Retail listings found; UK viability still NOT assessed."]
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as out:
+              out.write("\n".join(lines)+"\n")
+          print("COLLECTION_STATUS:",{"successful_queries":live,"missing_credentials":missing,
+                                      "products":report["product_count"]})
+          PY
       - name: Record explicit provider status and candidate count
         run: |
           git config user.name "github-actions[bot]"
