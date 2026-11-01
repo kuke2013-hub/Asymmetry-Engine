@@ -1,0 +1,43 @@
+{
+  "high_rating_trend_ranking": {
+    "meta": {
+      "last_modified": "2026-11-01"
+    },
+    "ranking_data": [
+      {
+        "rank": 3,
+        "item_information": {
+          "code": "fixture-store:compact-bowl",
+          "name": "シリコン 折りたたみ 洗顔 ボウル",
+          "regular_price": 1590,
+          "url": "https://store.shopping.yahoo.co.jp/fixture-store/compact-bowl.html"
+        },
+        "image": {
+          "medium": "https://item-shopping.c.yimg.jp/i/g/fixture-store_compact-bowl"
+        },
+        "review": {
+          "count": 42,
+          "rate": 4.4
+        }
+      },
+      {
+        "rank": 4,
+        "item_information": {
+          "code": "fixture-store:invalid",
+          "name": "irrelevant record",
+          "regular_price": 1000,
+          "url": "https://example.invalid/not-a-merchant-product"
+        }
+      },
+      {
+        "rank": 5,
+        "item_information": {
+          "code": "fixture-store:empty-title",
+          "name": "",
+          "regular_price": 1900,
+          "url": "https://store.shopping.yahoo.co.jp/fixture-store/empty.html"
+        }
+      }
+    ]
+  }
+}

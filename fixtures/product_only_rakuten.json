@@ -1,0 +1,22 @@
+{
+  "count": 1,
+  "page": 1,
+  "items": [
+    {
+      "itemCode": "fixture-shop:storage",
+      "itemName": "折りたたみ収納ケース",
+      "itemPrice": 2500,
+      "itemUrl": "https://item.rakuten.co.jp/fixture-shop/storage/",
+      "reviewCount": 150,
+      "mediumImageUrls": [
+        "https://thumbnail.image.rakuten.co.jp/fixture/xx.jpg"
+      ]
+    },
+    {
+      "itemCode": "fixture-shop:bad",
+      "itemName": "Product without price",
+      "itemPrice": null,
+      "itemUrl": "https://item.rakuten.co.jp/fixture-shop/bad/"
+    }
+  ]
+}

@@ -1,68 +1,92 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Asymmetry Engine | Market Research</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asymmetry Engine | Product Intelligence</title>
+<meta name="description" content="Research-only international physical-product discovery with evidence gating.">
 <style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0b1119;color:#e4edf5}
-*{box-sizing:border-box}body{margin:0;padding:28px 18px}main{max-width:1040px;margin:auto}
-a{color:#8cc8ff}header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{font-size:13px;letter-spacing:.13em;font-weight:750;color:#93b4d0;text-transform:uppercase}
-h1{margin:28px 0 10px;font-size:clamp(30px,5vw,54px);letter-spacing:-.04em}
-.lead{font-size:16px;color:#aebfce;line-height:1.6;max-width:760px}
-.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid #364a5e;border-radius:20px;padding:6px 12px;font-size:12px;color:#c9d7e1}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:32px 0}
-.card{background:#121d29;border:1px solid #243647;padding:20px;border-radius:14px}
-.big{font-size:36px;font-weight:750;letter-spacing:-.04em}.key{color:#a5b7c7;font-size:13px}.note{font-size:12px;color:#94a9bc;line-height:1.6;margin-top:6px}
-section{margin:32px 0;background:#101a25;border:1px solid #243647;border-radius:16px;padding:22px}
-h2{margin:0 0 14px;font-size:20px}button{background:#18344e;color:#e8f4ff;border:1px solid #41617b;padding:8px 14px;border-radius:8px;cursor:pointer}
-button[aria-pressed="true"]{background:#2b6a99}#controls{display:flex;gap:8px;flex-wrap:wrap}
-table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:12px 8px;border-bottom:1px solid #223446;text-align:left;vertical-align:top}
-th{color:#a5bacb;font-weight:600}td{overflow-wrap:anywhere}small{color:#95a8ba}
-footer{margin:32px 0;color:#89a1b4;font-size:12px;line-height:1.7}
-@media(max-width:640px){.cards{grid-template-columns:1fr}section{padding:16px}.responsive{overflow:auto}}
+:root{color-scheme:dark;--bg:#0b1118;--panel:#131e2a;--muted:#9bb0c2;--line:#293a4b;--ink:#ebf3fa;--accent:#8dceff}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,sans-serif}
+body{padding:24px 18px 70px}main{max-width:1120px;margin:auto}header,.between{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.logo{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:750}
+a{color:var(--accent)}a:hover{text-decoration:underline}h1{font-size:clamp(36px,6vw,65px);letter-spacing:-.055em;margin:34px 0 12px;line-height:1.07}
+h2{margin:0 0 9px;font-size:21px}p{line-height:1.65}.intro{color:#acbfd1;max-width:780px;font-size:16px}
+.note{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:26px 0}
+.metric,.section{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px}
+.metric .value{font-size:39px;letter-spacing:-.05em;font-weight:700;margin-top:8px}.metric .label{font-size:13px;color:var(--muted)}
+.section{margin-top:16px}.rule{margin:15px 0;border-top:1px solid var(--line)}
+.tag{font-size:11px;letter-spacing:.03em;border:1px solid #3a5269;padding:5px 10px;border-radius:20px;white-space:nowrap}
+.tag.warn{border-color:#9e7b42;color:#ffcc86}.tag.ok{border-color:#53836b;color:#a1eac3}
+.empty{padding:40px 16px;text-align:center;border:1px dashed #456076;border-radius:11px;margin-top:16px}
+.empty strong{display:block;font-size:21px;margin-bottom:10px}.empty p{margin:4px auto;max-width:560px;color:var(--muted)}
+#items{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:17px}
+.item{background:#0f1924;border:1px solid var(--line);border-radius:12px;padding:15px}
+.item .title{font-weight:650;line-height:1.45;margin-bottom:10px}
+.item .sub{font-size:12px;color:var(--muted);line-height:1.8}.sources{display:grid;gap:9px;margin-top:17px}
+.source{border:1px solid var(--line);border-radius:9px;padding:12px;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{padding:4px 9px;font-size:12px;background:#20364a;border-radius:15px}
+.footer{font-size:12px;color:var(--muted);line-height:1.7;margin-top:25px}
+@media(max-width:690px){.grid{grid-template-columns:1fr}.section,.metric{padding:16px}h1{font-size:36px}}
 </style></head><body><main>
-<header><span class="brand">Asymmetry Engine · Research v2</span><div class="pills"><a href="https://github.com/kuke2013-hub/Asymmetry-Engine">Repository</a><a href="https://github.com/kuke2013-hub/Asymmetry-Engine/actions">Collection logs</a></div></header>
-<h1>Signals before saturation.</h1>
-<p class="lead">Tracking search-interest signals in the UK, Japan and South Korea to investigate early-stage consumer-product opportunities. The engine is experimental: no cross-market predictive advantage or sales performance has yet been established.</p>
-<div class="cards">
-<div class="card"><div class="key">UK observations</div><div class="big" id="gb">—</div><div class="note">Google Trending Now RSS</div></div>
-<div class="card"><div class="key">Japan observations</div><div class="big" id="jp">—</div><div class="note">Google Trending Now RSS</div></div>
-<div class="card"><div class="key">Korea observations</div><div class="big" id="kr">—</div><div class="note">Google Trending Now RSS</div></div>
+<header><span class="logo">Asymmetry Engine / Research 3.0</span><nav><a href="https://github.com/kuke2013-hub/Asymmetry-Engine">Code</a> &nbsp;·&nbsp; <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/actions">Job logs</a></nav></header>
+<h1>Physical products.<br>Evidence first.</h1>
+<p class="intro">We look for inexpensive, demonstration-friendly consumer goods in Asian retail catalogues. General searches, football, celebrities and news are no longer eligible for this dashboard. Product listings are <b>candidates</b>, not yet proven UK opportunities.</p>
+<div class="grid">
+<div class="metric"><div class="label">Validated retail listings</div><div class="value" id="listed">—</div><div class="note">Official product ID, URL, price and source required</div></div>
+<div class="metric"><div class="label">UK-commercial opportunities</div><div class="value">0</div><div class="note">Cannot qualify without UK availability and conversion evidence</div></div>
+<div class="metric"><div class="label">Markets with live product feeds</div><div class="value" id="markets">—</div><div class="note">Only real retailer listings count</div></div>
 </div>
-<section><h2>Recorded search signals</h2><p class="note" id="time">Loading actual collected evidence…</p>
-<div id="controls"><button data-market="ALL" aria-pressed="true">All</button><button data-market="GB">UK</button><button data-market="JP">Japan</button><button data-market="KR">South Korea</button></div>
-<div class="responsive"><table><thead><tr><th>Market</th><th>Search term</th><th>Traffic bucket</th><th>Evidence</th></tr></thead><tbody id="table"><tr><td colspan="4">Loading data…</td></tr></tbody></table></div>
+<section class="section">
+<div class="between"><h2>Retail product discovery</h2><span class="tag">No artificial or sample records</span></div>
+<p class="note" id="timestamp">Loading the current product-only evidence file…</p>
+<div id="empty" class="empty" hidden><strong id="empty-title">No verified product listings yet</strong>
+<p id="empty-text">The engine will not fill empty results with irrelevant search trends. Authenticated retailer data is needed before products can appear.</p></div>
+<div id="items"></div>
 </section>
-<section><h2>Product commerce sources</h2>
-<p>Japan: Yahoo Shopping blended product-ranking connector — <strong>credentials required</strong> for live product observations.</p>
-<p>South Korea: Naver Shopping Insight keyword-click connector — <strong>credentials required</strong> for live shopping-interest ratios. It is not a product-sales feed.</p>
-<p>Multilingual product categorisation: open-weight MiniLM embeddings, run locally on GitHub Actions CPU without paid API tokens. <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/actions/workflows/multilingual.yml">View AI workflow</a>.</p>
-<p class="note">No product sales, affiliate commissions or verified China→UK lead times are represented here. No commercial forecasts are inferred from RSS volume.</p>
+<section class="section"><div class="between"><h2>Live source access</h2><span class="tag warn">Credentials may be required</span></div>
+<div id="sources" class="sources"><div class="source">Checking connected retail sources…</div></div>
+<p class="note">Japan: Yahoo Shopping and Rakuten official product APIs. South Korea: shopping-keyword click trends are supplementary evidence only, not individual product listings. China and UK commercial matching are not yet connected.</p></section>
+<section class="section"><h2>Acceptance standard</h2>
+<p>Every published record must come from an approved physical-goods retailer API and include an authentic product ID, listing URL, product name, price in original currency and capture timestamp. A human or validated classifier must still determine whether it is a good impulse-buy candidate.</p>
+<div class="rule"></div><div class="between"><span class="tag ok">Product records only</span><span class="tag">No inferred sales counts</span><span class="tag">No fake UK price conversion</span><span class="tag">No automatic opportunity score</span></div>
 </section>
-<footer>Source: Google Trending Now RSS · Dates and records reflect only successful provider responses · <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/blob/main/docs/PRODUCT_DATA.md">Data methods & limitations</a></footer>
+<div class="footer">This is a research system. Product rankings do not establish units sold or market lead times. The previous general-search collector has been retired from the commercial pipeline. <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/blob/main/docs/PRODUCT_GATE.md">Evidence rules and source restrictions</a>.</div>
 </main><script>
 (async()=>{
- const table=document.getElementById('table'), time=document.getElementById('time');
- let observations=[];
- function show(market){
-   for(const b of document.querySelectorAll('button[data-market]')) b.setAttribute('aria-pressed',String(b.dataset.market===market));
-   const rows=observations.filter(o=>market==='ALL'||o.market===market);
-   table.replaceChildren();
-   if(!rows.length){const tr=table.insertRow(); const td=tr.insertCell();td.colSpan=4;td.textContent='No recorded observations for this selection.';return;}
-   for(const obs of rows){const tr=table.insertRow();
-     for(const value of [obs.market,obs.term,obs.metadata?.approx_traffic_display||'—']){
-       tr.insertCell().textContent=value;}
-     const link=document.createElement('a');link.textContent='Source';link.href=obs.source_url||'https://trends.google.com/';link.rel='noopener noreferrer';link.target='_blank';
-     tr.insertCell().appendChild(link);
-   }
- }
- try{
-  const r=await fetch('./reports/latest-observations.json',{cache:'no-store'});
-  if(!r.ok)throw Error('HTTP '+r.status);
-  const data=await r.json();observations=data.observations||[];
-  for(const key of ['GB','JP','KR'])document.getElementById(key.toLowerCase()).textContent=observations.filter(o=>o.market===key).length;
-  time.textContent='Snapshot '+(data.captured_day||'unknown')+' · '+observations.length+' observations · Search signals, NOT product sales';
-  show('ALL');
- }catch(e){time.textContent='No data: latest public snapshot is unavailable.';table.textContent='No data';}
- document.querySelectorAll('button[data-market]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.market)));
+let data=null;
+const $=x=>document.getElementById(x);
+const retailers={'yahoo_jp_high_rating_products':'store.shopping.yahoo.co.jp','rakuten_jp_item_search':'item.rakuten.co.jp'};
+function trusted(p){if(!p||!retailers[p.source]||!p.product_id||!p.title||!p.category||!p.observed_at||!Number.isInteger(p.price)||p.price<=0||p.currency!=='JPY'||p.market!=='JP')return false;
+try{const u=new URL(p.product_url);return u.protocol==='https:'&&u.hostname===retailers[p.source]}catch(e){return false}}
+function text(node,t){node.textContent=String(t)}
+function chip(str,status){const el=document.createElement('span');el.className='tag'+(status==='success'?' ok':' warn');text(el,str);return el}
+function renderProducts(items){
+const list=$('items');list.replaceChildren();const verified=items.filter(trusted);
+text($('listed'),verified.length);text($('markets'),new Set(verified.map(x=>x.market)).size);
+if(!verified.length){$('empty').hidden=false;return}
+$('empty').hidden=true;
+for(const p of verified){
+const card=document.createElement('article');card.className='item';
+const title=document.createElement('div');title.className='title';text(title,p.title);
+const sub=document.createElement('div');sub.className='sub';text(sub,p.category.replaceAll('_',' ')+' · Japan · ¥'+p.price.toLocaleString('en-GB'));
+const sub2=document.createElement('div');sub2.className='sub';text(sub2,p.source+' · ID '+p.product_id);
+const link=document.createElement('a');link.href=p.product_url;link.textContent='View original retailer listing';link.target='_blank';link.rel='noopener noreferrer';
+card.append(title,sub,sub2,link);list.appendChild(card);
+}
+}
+function renderStatus(entries){
+const root=$('sources');root.replaceChildren();
+if(!entries?.length){root.appendChild(chip('No connected product feeds','missing'));return}
+for(const o of entries){const line=document.createElement('div');line.className='source';
+const name=document.createElement('div');text(name,(o.source==='rakuten_jp_item_search'?'Rakuten Japan':'Yahoo Shopping Japan')+' — '+(o.category||'product category'));
+const badge=chip(o.status==='success'?'Accepted '+o.accepted+' products':o.status==='credentials_missing'?'API credentials absent':o.status||'unavailable',o.status);
+line.append(name,badge);root.appendChild(line);}
+}
+try{const response=await fetch('./reports/product-only.json',{cache:'no-store'});
+if(!response.ok)throw Error('HTTP '+response.status);
+data=await response.json();
+if(data.schema_version!==3||data.data_type!=='retailer_product_listings_only')throw Error('Incompatible data');
+renderProducts(data.products||[]);renderStatus(data.source_status||[]);
+text($('timestamp'),'Last source check: '+new Date(data.generated_at).toLocaleString('en-GB',{timeZone:'UTC'})+' UTC. Listing data, not sales volume.');
+}catch(e){text($('timestamp'),'No product-only data published. See GitHub Actions for the latest source status.');
+renderProducts([]);renderStatus([]);}
 })();
 </script></body></html>

@@ -1,69 +1,46 @@
-# Asymmetry Engine — Phase 2
+# Asymmetry Engine — Product Discovery v3
 
-[Live research status dashboard](https://kuke2013-hub.github.io/Asymmetry-Engine/)
+**Research premise:** Discover inexpensive, demo-friendly physical consumer
+goods in Asian marketplaces, and later test whether their UK marketing
+potential is underexploited.
 
-**Status (1 November 2026):** Japan and South Korea commerce-data
-adapters have been implemented and verified against synthetic fixtures,
-but **live product data requires source-issued developer credentials**.
-The open-weight multilingual CPU model ran successfully on GitHub
-Actions using real Google RSS observations. Search trends, marketplace
-rankings and Naver relative click ratios must never be mislabelled as
-product units sold.
+**Important correction:** The old Google general-trends dashboard was wrong.
+The engine now publishes only retailer SKU observations that pass
+[the product gate](docs/PRODUCT_GATE.md).
+No search trends, football, news or inferred product demand may enter it.
 
-See [product-data methods](docs/PRODUCT_DATA.md),
-[GitHub Actions](https://github.com/kuke2013-hub/Asymmetry-Engine/actions),
-and [the watchlist](config/watchlist.json).
+## Website
+https://kuke2013-hub.github.io/Asymmetry-Engine/
 
-# Asymmetry Engine — Market intelligence prototype
+The dashboard loads only `reports/product-only.json`.
+When no authenticated product APIs are available it shows zero
+validated listings and explicit source-access failures. This is the
+correct result; it is not a successful product research outcome.
 
-A Python + SQLite collector for investigating whether product interests in Japan,
-South Korea and China lead commercial opportunities in the UK. Current Step 1
-collects **public Google Trending Now RSS search topics** from GB, JP and KR,
-not actual product sales. A Yahoo Japan Shopping keyword-ranking adapter is
-available with separate credentials. Product research and local LLM evaluation
-come in later phases.
+## Current research connectors
+- Yahoo Japan High Rating Trend Ranking (actual retailer SKU).
+- Rakuten Ichiba Item Search, 2026-07-01 (actual retailer SKU).
+- South Korea Naver Shopping Insight is **contextual keyword interest**,
+  not a product listing source; no Korean SKU feed is connected.
+- China, UK product matching and affiliate commissions are not connected.
 
-## What is live
+## How the code is verified
+- `python -m unittest discover -s tests -v`
+- `python -m engine.product_only --output reports/product-only.json`
 
-- GitHub Actions runs offline tests on commits and pull requests.
-- A separate workflow attempts **live RSS collection** on qualifying pushes,
-  daily at 05:43 UTC and when manually dispatched.
-- Each attempted collection records success/failure and the exact number parsed.
-- A dated JSON evidence file and a health report are committed automatically
-  when the workflow has write permission.
-- No external LLM tokens, paid data services or affiliate accounts are required.
+The published JSON is generated from real source responses only;
+offline fixtures are explicitly marked as synthetic and cannot be
+promoted to the dashboard.
 
-Inspect [the latest health report](reports/latest-health.md) after an Action run.
-Dated observations are stored in [data/history](data/history).
-The source may block hosted runners: a recorded failed status is not a successful
-collection, and the workflow then fails visibly after saving the diagnostic.
+## Credentials and licensing
+Yahoo requires `YAHOO_JP_APP_ID`.
+Rakuten requires `RAKUTEN_APP_ID` and `RAKUTEN_ACCESS_KEY`.
+These are source-issued credentials; none can be manufactured by code.
+Product APIs have commercial usage and display restrictions. In
+particular, Rakuten content may not be repurposed for another affiliate
+network without permission. See the full [data policy](docs/PRODUCT_GATE.md).
 
-## Local commands
-
-Requires Python 3.10+ and uses the standard library.
-
-    python3 -m unittest discover -s tests -v
-    python3 -m engine.cli init
-    python3 -m engine.cli collect --markets GB,JP,KR
-    python3 -m engine.cli health
-    python3 -m engine.cli report
-    python3 -m engine.cli export --out data/local-snapshot.json
-
-The local SQLite file is ignored by Git. The optional Yahoo Japan collector
-requires YAHOO_JP_APP_ID, and this project never stores that key in Git:
-
-    python3 -m engine.cli fetch-yahoo --type up
-
-An optional **Ollama** JSON-schema classifier is in engine/ai.py, but is not
-trained, benchmarked or invoked in cloud scheduled jobs.
-
-## Important limits
-
-Google Trending Now reflects sudden general search activity. It is NOT a
-consumer-product listing feed, NOT measured unit sales and NOT proof that
-a country leads another. The next milestones are permitted product-specific
-feeds, multilingual product matching, sustained history and benchmarked scoring.
-No affiliate revenue is claimed.
-
-The input XML/JSON test fixtures under fixtures/ are SYNTHETIC.
-See [source-access audit](docs/SOURCES.md).
+## This isn't yet a profitable product finder
+No real retailer product collection is established without credentials.
+No UK product matches, sales counts or proven market lead-time exist.
+We intentionally do not show a product "opportunity score" yet.

@@ -1,27 +1,40 @@
-name: Validate Asian marketplace adapters
+name: Product-only source collection
 on:
   push:
     branches: [main]
     paths:
-      - 'engine/market_products.py'
-      - 'engine/market_cli.py'
-      - 'tests/test_market_products.py'
+      - 'engine/product_only.py'
+      - 'config/products.json'
+      - 'tests/test_product_only.py'
       - '.github/workflows/products.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '31 6 * * *'
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: product-only-sources
+  cancel-in-progress: false
 jobs:
-  verify:
+  verify-and-collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify source parsers and normalisation
+      - name: Run strict product-only regression tests
         run: python -m unittest discover -s tests -v
-      - name: Record API availability without credentials
-        run: python -m engine.market_cli collect --out reports/product-sources.json
-      - name: Display source status
-        run: cat reports/product-sources.json
+      - name: Try approved product retailer feeds
+        run: python -m engine.product_only --output reports/product-only.json
+      - name: Record explicit provider status and candidate count
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/product-only.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: product-only source status"
+            git pull --rebase origin main
+            git push
+          fi

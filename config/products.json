@@ -1,0 +1,37 @@
+{
+  "version": 3,
+  "focus": "Physical impulse-buy accessories and demo-friendly household products",
+  "note": "Curated Japanese retailer searches only, NOT general trending searches",
+  "queries": [
+    {
+      "source": "yahoo_jp_high_rating_products",
+      "category": "beauty_tools",
+      "term": "美容 マッサージ グッズ"
+    },
+    {
+      "source": "yahoo_jp_high_rating_products",
+      "category": "kitchen_gadgets",
+      "term": "便利 キッチン スライサー"
+    },
+    {
+      "source": "yahoo_jp_high_rating_products",
+      "category": "storage_organisation",
+      "term": "折りたたみ 収納 ボックス"
+    },
+    {
+      "source": "rakuten_jp_item_search",
+      "category": "beauty_tools",
+      "term": "シリコン フェイス ケア"
+    },
+    {
+      "source": "rakuten_jp_item_search",
+      "category": "cleaning_tools",
+      "term": "便利 掃除 ブラシ"
+    },
+    {
+      "source": "rakuten_jp_item_search",
+      "category": "travel_accessories",
+      "term": "旅行 収納 ポーチ"
+    }
+  ]
+}
