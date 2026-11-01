@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="app-version" content="3.4">
+<meta name="app-version" content="3.5">
 <meta name="description" content="Product-only market research: public evidence and source readiness, without invented opportunities.">
-<title>Asymmetry Engine v3.4 — Product Research</title>
+<title>Asymmetry Engine v3.5 — Product Research</title>
 <style>
 :root{color-scheme:dark;--bg:#0c121a;--surface:#151f2b;--surface2:#101924;--text:#edf4fa;--muted:#a7b8c9;--line:#304252;--accent:#92cffb;--warn:#f6c68d}
 *{box-sizing:border-box}
@@ -79,7 +79,7 @@ h1{font-size:31px;letter-spacing:-.04em;line-height:1.1;margin:23px 0 10px}
 </style>
 </head>
 <body><main>
-<header><span class="logo">Asymmetry Engine · v3.4</span><nav><a href="https://github.com/kuke2013-hub/Asymmetry-Engine">Repository</a> · <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/actions">Checks</a></nav></header>
+<header><span class="logo">Asymmetry Engine · v3.5</span><nav><a href="https://github.com/kuke2013-hub/Asymmetry-Engine">Repository</a> · <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/actions">Checks</a></nav></header>
 <h1>Product signals, without the noise.</h1>
 <p class="intro">Identifiable consumer goods from Asian retailers, then evidence-led UK validation. <strong>International timing advantages remain unproven.</strong> No general news or entertainment searches.</p>
 
@@ -123,7 +123,7 @@ h1{font-size:31px;letter-spacing:-.04em;line-height:1.1;margin:23px 0 10px}
 <div class="milestone"><strong>3. Validate UK potential</strong><p>Match UK retail listings and assess availability, competition, fees and video demonstration potential.</p></div>
 </div>
 </section>
-<footer>Version 3.4 · <a href="https://kuke2013-hub.github.io/Asymmetry-Engine/versions/v3.3/">View v3.3</a> · Evidence integrity: a retailer listing is not proof of sales, virality, novelty or profitable commission. Synthetic fixtures never appear on this site. <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/blob/main/docs/PRODUCT_GATE.md">Audit rules and documented limitations</a>.</footer>
+<footer>Version 3.5 · <a href="https://kuke2013-hub.github.io/Asymmetry-Engine/versions/v3.4/">View v3.4</a> · Evidence integrity: a retailer listing is not proof of sales, virality, novelty or profitable commission. Synthetic fixtures never appear on this site. <a href="https://github.com/kuke2013-hub/Asymmetry-Engine/blob/main/docs/PRODUCT_GATE.md">Audit rules and documented limitations</a>.</footer>
 </main>
 <script>
 (async()=>{
@@ -170,7 +170,7 @@ function products(items){
    const article=document.createElement("article");article.className="product";
    const name=document.createElement("strong");name.textContent=p.title;
    const detail=document.createElement("div");detail.className="detail";
-   detail.textContent="Japan · ¥"+p.price.toLocaleString("en-GB")+" · Query theme: "+p.category.replaceAll("_"," ");
+   detail.textContent="Japan · ¥"+p.price.toLocaleString("en-GB")+" · Retail query theme (not AI-verified): "+p.category.replaceAll("_"," ");
    const link=document.createElement("a");link.textContent="Original retailer listing";
    link.href=p.product_url;link.rel="noopener noreferrer";link.target="_blank";
    article.append(name,detail,link);root.appendChild(article);
@@ -181,21 +181,27 @@ try{
  if(!response.ok)throw new Error("Report unavailable");
  const data=await response.json();
  if(data.schema_version!==3||data.data_type!=="retailer_product_listings_only"||!Array.isArray(data.products)||!Array.isArray(data.source_status)||data.product_count!==data.products.length)throw new Error("Invalid or inconsistent report");
- const count=sourceStatus(data.source_status||[]);
- $("connected").textContent=count;
- products(data.products||[]);
+ if(data.products.length>3000)throw new Error("Unexpected catalogue size");
  const ts=new Date(data.generated_at);
- const validDate=Number.isFinite(ts.valueOf());
- $("snapshot").textContent="Latest pipeline run: "+(validDate?ts.toLocaleString("en-GB",{timeZone:"UTC"})+" UTC":"timestamp unavailable")+". This is not a sales report.";
- const ageHours=validDate?(Date.now()-ts.valueOf())/3600000:Infinity;
- if(!validDate || ageHours>48){
-   $("status-title").textContent="Product-source report is outdated";
-   $("status-message").textContent="The most recent published status is more than 48 hours old or undated. Current source availability is unknown.";
-   $("status-title").dataset.stale="true";
+ const ageMs=Date.now()-ts.getTime();
+ if(!Number.isFinite(ts.getTime())||ageMs>48*3600*1000||ageMs< -5*60*1000){
+   $("status-title").textContent="Latest product report is stale";
+   $("status-message").textContent="An old or future-dated report cannot be treated as current product research.";
+   $("product-count").textContent="Not current";
+   $("connected").textContent="Not current";
+   $("snapshot").textContent="The report timestamp is outside the accepted 48-hour freshness window.";
+   $("empty").hidden=false;
+   $("products").replaceChildren();
+   $("sources").textContent="Historical source status is withheld until the report is refreshed.";
+ }else{
+   const count=sourceStatus(data.source_status);
+   $("connected").textContent=count;
+   products(data.products);
+   $("snapshot").textContent="Latest pipeline run: "+ts.toLocaleString("en-GB",{timeZone:"UTC"})+" UTC. This is not a sales report.";
+   const total=data.products.filter(isTrusted).length;
+   $("status-title").textContent=count===0?"No live retail feeds connected":total?"Retail catalogue available for review":"Retail feeds connected; no qualifying listings";
+   $("status-message").textContent=count===0?"No successful authenticated retail API queries were recorded. Product research is not yet operational.":total?"Retailer search matches are unreviewed—not automatically promising, compliant, or eligible for UK affiliates.":"The connected API calls did not produce qualifying product records.";
  }
- const total=(data.products||[]).filter(isTrusted).length;
- if($("status-title").dataset.stale!=="true")$("status-title").textContent=count===0?"No live retail feeds connected":total?"Retail catalogue available for review":"Retail feeds connected; no qualifying listings";
- if($("status-title").dataset.stale!=="true")$("status-message").textContent=count===0?"No successful authenticated retail API queries were recorded. Product research is not yet operational.":total?"Review individual listings before assessing UK opportunity.":"The connected API calls did not produce qualifying product records.";
 }catch(ex){
  $("product-count").textContent="Unavailable";$("connected").textContent="Unavailable";
  $("status-title").textContent="Product data is unavailable";
