@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-01T17:34:32+00:00",
+  "generated_at": "2026-11-01T18:06:59+00:00",
   "data_type": "retailer_product_listings_only",
   "headline": "Catalogue candidates; none are verified UK commercial opportunities",
   "products": [],
@@ -66,5 +66,7 @@
   "china_status": "not_connected",
   "korea_product_status": "no_authorised_SKU_feed",
   "sales_status": "no_verified_units_sold",
+  "product_review_status": "unreviewed_retailer_listings",
+  "history_status": "daily_product_history_not_configured",
   "disclaimer": "Ranking is not units sold. No UK availability, commissions or predictive advantage validated."
 }
