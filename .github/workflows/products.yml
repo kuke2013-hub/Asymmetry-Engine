@@ -27,6 +27,10 @@ jobs:
       - name: Run strict product-only regression tests
         run: python -m unittest discover -s tests -v
       - name: Try approved product retailer feeds
+        env:
+          YAHOO_JP_APP_ID: ${{ secrets.YAHOO_JP_APP_ID }}
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
         run: python -m engine.product_only --output reports/product-only.json
       - name: Record explicit provider status and candidate count
         run: |
