@@ -1,0 +1,54 @@
+name: Review each published website version in a real browser
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'versions/**'
+      - 'config/site-release.json'
+      - 'tests/review_version.py'
+      - '.github/workflows/version-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify actual public version URL, root and data contract
+        run: python tests/review_version.py
+      - name: Inspect and screenshot actual rendered site (desktop/mobile)
+        shell: bash
+        run: |
+          set -eu
+          VERSION=$(python -c 'import json;print(json.load(open("config/site-release.json"))["version"])')
+          SITE="https://kuke2013-hub.github.io/Asymmetry-Engine/versions/$VERSION/"
+          mkdir -p website-review
+          if command -v google-chrome >/dev/null; then CHROME=google-chrome
+          elif command -v chromium >/dev/null; then CHROME=chromium
+          else echo "Chrome missing" && exit 1; fi
+          "$CHROME" --headless --no-sandbox --disable-gpu --ignore-certificate-errors \
+            --virtual-time-budget=5500 --hide-scrollbars --window-size=1440,1100 \
+            --screenshot=website-review/desktop.png "$SITE"
+          "$CHROME" --headless --no-sandbox --disable-gpu --ignore-certificate-errors \
+            --virtual-time-budget=5500 --hide-scrollbars --window-size=390,1000 \
+            --screenshot=website-review/mobile.png "$SITE"
+          "$CHROME" --headless --no-sandbox --disable-gpu --ignore-certificate-errors \
+            --virtual-time-budget=5500 --dump-dom "$SITE" > website-review/rendered.html
+          grep -q 'No product listings have been collected.' website-review/rendered.html
+          ! grep -qi 'andreas almgren' website-review/rendered.html
+          ! grep -qi 'Recorded search signals' website-review/rendered.html
+          ! grep -q 'product data is unavailable' website-review/rendered.html
+          test -s website-review/desktop.png && test -s website-review/mobile.png
+          printf 'Verified %s\n' "$SITE" > website-review/verification.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-version-rendering
+          path: website-review/
+          retention-days: 14
