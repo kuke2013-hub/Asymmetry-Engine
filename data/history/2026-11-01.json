@@ -1,0 +1,462 @@
+{
+  "captured_day": "2026-11-01",
+  "generated_at": "2026-11-01T16:43:50+00:00",
+  "warning": "Market research signals; NOT product sales or affiliate earnings",
+  "observations": [
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "andreas almgren",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "birmingham city w.f.c. vs tottenham hotspur f.c. women standings",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "500+",
+        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "bradley barcola",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "liverpool manager",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:30:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "now",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "paris fc vs monaco",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "pippa middleton",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "remembrance day 2026",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "sadiq khan",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "term": "virgil van dijk",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=GB",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 08:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "liverpool vs arsenal",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "500+",
+        "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "scoot",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 08:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "ほん 怖 2026",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "パリfc 対 モナコ",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "500+",
+        "published_at": "Sun, 1 Nov 2026 07:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "ヒロド歩美",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "リヨン 対 アンジェ",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "500+",
+        "published_at": "Sun, 1 Nov 2026 07:30:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "リヴァプール 対 アーセナル",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "2000+",
+        "published_at": "Sun, 1 Nov 2026 07:40:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "奥村温輝",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "本田真凜",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "2000+",
+        "published_at": "Sun, 1 Nov 2026 08:00:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "term": "清春",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=JP",
+      "metadata": {
+        "approx_traffic_display": "500+",
+        "published_at": "Sun, 1 Nov 2026 07:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "racing santander vs madrid",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 06:50:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "racing santander vs real madrid",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "1000+",
+        "published_at": "Sun, 1 Nov 2026 06:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "расинг – реал мадрид",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "라치오",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 07:30:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "리버풀 대 아스널",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "5000+",
+        "published_at": "Sun, 1 Nov 2026 07:30:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "성유리",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "1000+",
+        "published_at": "Sun, 1 Nov 2026 06:40:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "손석구",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "1000+",
+        "published_at": "Sun, 1 Nov 2026 05:40:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "스타링크",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "100+",
+        "published_at": "Sun, 1 Nov 2026 07:20:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "우니온 베를린 대 쾰른",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "1000+",
+        "published_at": "Sun, 1 Nov 2026 06:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "term": "코리아 오픈",
+      "metric_type": "approx_search_traffic_bucket",
+      "metric_value": null,
+      "source_url": "https://trends.google.com/trending/rss?geo=KR",
+      "metadata": {
+        "approx_traffic_display": "200+",
+        "published_at": "Sun, 1 Nov 2026 06:10:00 -0800",
+        "note": "Search trends, NOT verified product sales"
+      },
+      "captured_at": "2026-11-01T16:43:50+00:00"
+    }
+  ],
+  "collection_runs": [
+    {
+      "market": "GB",
+      "source": "google_trending_rss",
+      "status": "success",
+      "parsed": 10,
+      "inserted": 10,
+      "http_status": 200,
+      "error": null,
+      "started_at": "2026-11-01T16:43:50+00:00",
+      "finished_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "JP",
+      "source": "google_trending_rss",
+      "status": "success",
+      "parsed": 10,
+      "inserted": 10,
+      "http_status": 200,
+      "error": null,
+      "started_at": "2026-11-01T16:43:50+00:00",
+      "finished_at": "2026-11-01T16:43:50+00:00"
+    },
+    {
+      "market": "KR",
+      "source": "google_trending_rss",
+      "status": "success",
+      "parsed": 10,
+      "inserted": 10,
+      "http_status": 200,
+      "error": null,
+      "started_at": "2026-11-01T16:43:50+00:00",
+      "finished_at": "2026-11-01T16:43:50+00:00"
+    }
+  ]
+}
