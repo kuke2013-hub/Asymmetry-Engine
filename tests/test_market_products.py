@@ -77,3 +77,29 @@ class MultilingualTests(unittest.TestCase):
     c=classify_batch(["두피 마사지기"],FakeEmbedder([list(LABELS).index("sports_news")]),
                      source_is_product=True)
     self.assertTrue(c[0]["product_related"])
+
+
+class CrossMarketClassificationTests(unittest.TestCase):
+ def test_classifies_real_database_table_shapes_offline(self):
+    import tempfile
+    from engine.multilingual import classify_market_db
+    with tempfile.TemporaryDirectory() as td:
+       path=str(Path(td)/"research.sqlite")
+       conn=sqlite3.connect(path);setup(conn)
+       save_yahoo(conn,parse_yahoo((ROOT/"fixtures/yahoo_products.json").read_bytes()))
+       save_naver(conn,parse_naver((ROOT/"fixtures/naver_keywords.json").read_bytes(),
+                                    "50000002","beauty"))
+       conn.close()
+       class E:
+          def embed(self,texts):
+             n=len(LABELS)
+             for i in range(len(texts)):
+                v=[0.0]*n
+                v[i if i<n else 0]=1.0
+                yield v
+       results=classify_market_db(path,encoder=E())
+       self.assertGreaterEqual(len(results),4)
+       self.assertEqual(results[0]["market"],"JP")
+       self.assertTrue(results[0]["product_related"])
+       self.assertEqual(results[-1]["market"],"KR")
+

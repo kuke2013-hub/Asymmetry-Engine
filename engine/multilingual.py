@@ -74,14 +74,58 @@ def classify_evidence(snapshot, *, encoder=None, limit=120):
                       source_url=obs.get("source_url"))
     return labels
 
+def classify_market_db(path, *, encoder=None, limit=100):
+    """Categorise actual authenticated product snapshots and shopping keywords."""
+    import sqlite3
+    file=Path(path)
+    if not file.is_file():
+        return []
+    conn=sqlite3.connect(str(file))
+    try:
+        products=conn.execute("""SELECT name,source_product_id,item_url FROM
+            (SELECT name,product_id AS source_product_id,url AS item_url
+             FROM (SELECT name,product_id,url FROM product_snapshots
+             ORDER BY day DESC LIMIT ?))""",(limit,)).fetchall()
+    except sqlite3.OperationalError:
+        products=[]
+    try:
+        keywords=conn.execute("""SELECT keyword,comparison_set,category_id
+            FROM korean_keyword_interest GROUP BY keyword,comparison_set,category_id
+            LIMIT ?""",(limit,)).fetchall()
+    except sqlite3.OperationalError:
+        keywords=[]
+    conn.close()
+    if not products and not keywords:return []
+    model=encoder if encoder is not None else real_encoder()
+    labelled=[]
+    if products:
+        result=classify_batch([x[0] for x in products],model,source_is_product=True)
+        for record,data in zip(result,products):
+            record.update(market="JP",source="yahoo_jp_high_rating_products",
+                          product_id=data[1],source_url=data[2])
+        labelled.extend(result)
+    if keywords:
+        result=classify_batch([x[0] for x in keywords],model)
+        for record,data in zip(result,keywords):
+            record.update(market="KR",source="naver_kr_shopping_keyword_clicks",
+                          comparison_set=data[1],category_id=data[2])
+        labelled.extend(result)
+    return labelled
+
 def main(argv=None):
     import argparse
     p=argparse.ArgumentParser()
-    p.add_argument("--input",required=True)
+    p.add_argument("--input")
+    p.add_argument("--product-db")
     p.add_argument("--out",required=True)
     p.add_argument("--limit",type=int,default=120)
     args=p.parse_args(argv)
-    labels=classify_evidence(args.input,limit=args.limit)
+    if not args.input and not args.product_db:
+        p.error("Require --input or --product-db")
+    labels=[]
+    encoder=real_encoder()
+    if args.input: labels.extend(classify_evidence(args.input,encoder=encoder,limit=args.limit))
+    if args.product_db: labels.extend(classify_market_db(args.product_db,encoder=encoder,limit=args.limit))
     target=Path(args.out);target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps({"model":MODEL,
        "disclaimer":"Zero-shot predictions require review; this is not a trained sales predictor.",
