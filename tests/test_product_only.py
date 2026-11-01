@@ -79,7 +79,7 @@ class ProviderParsingTests(unittest.TestCase):
     with self.assertRaises(ValueError):parse_yahoo_product_list(b'{}',"beauty_tools")
     with self.assertRaises(ValueError):parse_rakuten_product_list(b'{}',"beauty_tools")
  def test_publish_is_fail_closed_from_legacy_feed(self):
-    legacy=(ROOT/"fixtures/google_jp.xml").read_text()
+    self.assertFalse((ROOT/"fixtures/google_jp.xml").exists())
     payload=[{"source":"google_trending_rss","original_text":"andreas almgren",
              "market":"GB"},{"source":"google_trending_rss","original_text":"football news","market":"JP"}]
     out=publish(payload,[],ST)
