@@ -1,3 +1,19 @@
+# Asymmetry Engine — Phase 2
+
+[Live research status dashboard](https://kuke2013-hub.github.io/Asymmetry-Engine/)
+
+**Status (1 November 2026):** Japan and South Korea commerce-data
+adapters have been implemented and verified against synthetic fixtures,
+but **live product data requires source-issued developer credentials**.
+The open-weight multilingual CPU model ran successfully on GitHub
+Actions using real Google RSS observations. Search trends, marketplace
+rankings and Naver relative click ratios must never be mislabelled as
+product units sold.
+
+See [product-data methods](docs/PRODUCT_DATA.md),
+[GitHub Actions](https://github.com/kuke2013-hub/Asymmetry-Engine/actions),
+and [the watchlist](config/watchlist.json).
+
 # Asymmetry Engine — Market intelligence prototype
 
 A Python + SQLite collector for investigating whether product interests in Japan,

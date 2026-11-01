@@ -37,6 +37,7 @@ jobs:
           DAY=$(date -u +%F)
           python -m engine.cli export --date "$DAY" --out "data/history/$DAY.json"
           python -m engine.cli health > reports/latest-health.md
+          cp "data/history/$DAY.json" reports/latest-observations.json
       - name: Commit dated observations and auditable failures
         shell: bash
         run: |
